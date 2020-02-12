@@ -73,7 +73,9 @@
             var toot = document.getElementsByTagName('audio')[0];
             var hornhelp = document.getElementsByTagName('toottwo')[0];
             var horn = document.getElementsByTagName('img')[0];
-            
+            horn.className = 'pointing';
+            toot.volume = 0.4
+
             toot.addEventListener('playing', function() {
                 horn.className = 'shake';
             });
@@ -81,15 +83,11 @@
             toot.addEventListener('ended', function() {
                 horn.className = 'pointing';
             });
-
-            toot.addEventListener('canplaythrough', function() {
-                doToot();
-            });
             
             horn.addEventListener('click', function() {
-                if(toot.ended) {
+
                     doToot();
-                }
+
             });
 
             function doToot() {
